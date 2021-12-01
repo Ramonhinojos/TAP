@@ -83,6 +83,17 @@ public class Controller {
             }
         } else if (comboOpciones.getSelectionModel().getSelectedIndex() == 3) {
             //estrella doble
+
+            int mitadAncho = ((int) lienzo.getWidth()) ;
+            int mitadAlto = ((int) lienzo.getHeight()) ;
+            int divisiones = mitadAncho / valor;
+            for (int j = 1; j < valor+1; j++) {
+                context.strokeOval(mitadAncho, 0, mitadAncho, lienzo.getHeight());
+                context.strokeLine(divisiones*j,mitadAlto,mitadAncho,mitadAlto+(divisiones*j));
+                context.strokeLine(mitadAncho,divisiones*j,mitadAncho-(divisiones*j),mitadAlto);
+                context.strokeLine((lienzo.getWidth())-(divisiones*j),lienzo.getHeight()/2,lienzo.getWidth()/2,(lienzo.getHeight()/2+(divisiones*j)));
+            }
+
         }
     }
 
